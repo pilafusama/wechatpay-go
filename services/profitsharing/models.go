@@ -461,7 +461,7 @@ func (o CreateOrderRequest) MarshalJSON() ([]byte, error) {
 	if o.UnfreezeUnsplit == nil {
 		return nil, fmt.Errorf("field `UnfreezeUnsplit` is required and must be specified in CreateOrderRequest")
 	}
-	toSerialize["unfreeze_unsplit"] = o.UnfreezeUnsplit
+	toSerialize["finish"] = o.UnfreezeUnsplit
 	return json.Marshal(toSerialize)
 }
 
