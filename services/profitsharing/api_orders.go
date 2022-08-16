@@ -86,6 +86,52 @@ func (a *OrdersApiService) CreateOrder(ctx context.Context, req CreateOrderReque
 	return resp, result, nil
 }
 
+func (a *OrdersApiService) EcommerceCreateOrder(ctx context.Context, req CreateOrderRequest) (resp *OrdersEntity, result *core.APIResult, err error) {
+	var (
+		localVarHTTPMethod   = nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarQueryParams  neturl.Values
+		localVarHeaderParams = nethttp.Header{}
+	)
+
+	// 对请求中敏感字段进行加密
+	encReq := req.Clone()
+	encryptCertificate, err := a.Client.EncryptRequest(ctx, encReq)
+	if err != nil {
+		return nil, nil, fmt.Errorf("encrypt request failed: %v", err)
+	}
+
+	if encryptCertificate != "" {
+		localVarHeaderParams.Set(consts.WechatPaySerial, encryptCertificate)
+	}
+	req = *encReq
+
+	localVarPath := consts.WechatPayAPIServer + "/v3/ecommerce/profitsharing/orders"
+	// Make sure All Required Params are properly set
+
+	// Setup Body Params
+	localVarPostBody = req
+
+	// Determine the Content-Type Header
+	localVarHTTPContentTypes := []string{"application/json"}
+	// Setup Content-Type
+	localVarHTTPContentType := core.SelectHeaderContentType(localVarHTTPContentTypes)
+
+	// Perform Http Request
+	result, err = a.Client.Request(ctx, localVarHTTPMethod, localVarPath, localVarHeaderParams, localVarQueryParams, localVarPostBody, localVarHTTPContentType)
+	if err != nil {
+		return nil, result, err
+	}
+
+	// Extract OrdersEntity from Http Response
+	resp = new(OrdersEntity)
+	err = core.UnMarshalResponse(result.Response, resp)
+	if err != nil {
+		return nil, result, err
+	}
+	return resp, result, nil
+}
+
 // QueryOrder 查询分账结果API
 //
 // 发起分账请求后，可调用此接口查询分账结果
