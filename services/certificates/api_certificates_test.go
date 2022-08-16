@@ -15,13 +15,13 @@ import (
 	"time"
 
 	"github.com/agiledragon/gomonkey"
+	"github.com/pilafusama/wechatpay-go/core"
+	"github.com/pilafusama/wechatpay-go/core/consts"
+	"github.com/pilafusama/wechatpay-go/core/option"
+	"github.com/pilafusama/wechatpay-go/services/certificates"
+	"github.com/pilafusama/wechatpay-go/utils"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"github.com/wechatpay-apiv3/wechatpay-go/core"
-	"github.com/wechatpay-apiv3/wechatpay-go/core/consts"
-	"github.com/wechatpay-apiv3/wechatpay-go/core/option"
-	"github.com/wechatpay-apiv3/wechatpay-go/services/certificates"
-	"github.com/wechatpay-apiv3/wechatpay-go/utils"
 )
 
 const (

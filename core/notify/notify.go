@@ -11,9 +11,9 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/wechatpay-apiv3/wechatpay-go/core/auth"
-	"github.com/wechatpay-apiv3/wechatpay-go/core/auth/validators"
-	"github.com/wechatpay-apiv3/wechatpay-go/utils"
+	"github.com/pilafusama/wechatpay-go/core/auth"
+	"github.com/pilafusama/wechatpay-go/core/auth/validators"
+	"github.com/pilafusama/wechatpay-go/utils"
 )
 
 // Handler 微信支付通知 Handler
