@@ -425,7 +425,7 @@ type CreateOrderRequest struct {
 	// 微信支付订单号
 	TransactionId *string `json:"transaction_id"`
 	// 1、如果为true，该笔订单剩余未分账的金额会解冻回分账方商户； 2、如果为false，该笔订单剩余未分账的金额不会解冻回分账方商户，可以对该笔订单再次进行分账。
-	UnfreezeUnsplit *bool `json:"unfreeze_unsplit"`
+	UnfreezeUnsplit *bool `json:"finish"`
 }
 
 func (o CreateOrderRequest) MarshalJSON() ([]byte, error) {
