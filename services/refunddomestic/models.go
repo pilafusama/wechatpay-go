@@ -877,7 +877,7 @@ type Refund struct {
 	// 退款受理时间，遵循rfc3339标准格式，格式为YYYY-MM-DDTHH:mm:ss+TIMEZONE，YYYY-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC 8小时，即北京时间）。例如：2015-05-20T13:29:35+08:00表示，北京时间2015年5月20日13点29分35秒。
 	CreateTime *time.Time `json:"create_time"`
 	// 退款到银行发现用户的卡作废或者冻结了，导致原路退款银行卡失败，可前往商户平台（pay.weixin.qq.com）-交易中心，手动处理此笔退款。 枚举值： - SUCCESS—退款成功 - CLOSED—退款关闭 - PROCESSING—退款处理中 - ABNORMAL—退款异常 * `SUCCESS` - 退款成功 * `CLOSED` - 退款关闭 * `PROCESSING` - 退款处理中 * `ABNORMAL` - 退款异常
-	Status *Status `json:"status"`
+	Status *Status `json:"refund_status"`
 	// 退款所使用资金对应的资金账户类型 枚举值： - UNSETTLED : 未结算资金 - AVAILABLE : 可用余额 - UNAVAILABLE : 不可用余额 - OPERATION : 运营户 - BASIC : 基本账户（含可用余额和不可用余额） * `UNSETTLED` - 未结算资金 * `AVAILABLE` - 可用余额 * `UNAVAILABLE` - 不可用余额 * `OPERATION` - 运营户 * `BASIC` - 基本账户（含可用余额和不可用余额）
 	FundsAccount *FundsAccount `json:"funds_account,omitempty"`
 	// 金额详细信息
