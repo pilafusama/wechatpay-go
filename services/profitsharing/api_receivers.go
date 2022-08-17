@@ -163,7 +163,7 @@ func (a *ReceiversApiService) DeleteReceiver(ctx context.Context, req DeleteRece
 		localVarHeaderParams = nethttp.Header{}
 	)
 
-	localVarPath := consts.WechatPayAPIServer + "/v3/profitsharing/receivers/delete"
+	localVarPath := consts.WechatPayAPIServer + "/v3/ecommerce/profitsharing/receivers/delete"
 	// Make sure All Required Params are properly set
 
 	// Setup Body Params
